@@ -1,0 +1,68 @@
+// 1. Teacher interface
+interface Teacher {
+  readonly firstName: string; // set only at initialization
+  readonly lastName: string; // set only at initialization
+  fullTimeEmployee: boolean; // required
+  yearsOfExperience?: number; // optional
+  location: string; // required
+  [key: string]: any; // allows extra properties
+}
+
+// 2. Example Teacher objects
+const teacher1: Teacher = {
+  firstName: "Alice",
+  lastName: "Smith",
+  fullTimeEmployee: true,
+  yearsOfExperience: 5,
+  location: "New York"
+};
+
+const teacher2: Teacher = {
+  firstName: "Bob",
+  lastName: "Brown",
+  fullTimeEmployee: true,
+  location: "Paris",
+  contract: true
+};
+
+const teacher3: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: false,
+  location: "London",
+  contract: false
+};
+
+// Log Teachers
+console.log("Teachers:");
+console.log(teacher1);
+console.log(teacher2);
+console.log(teacher3);
+
+// 3. Directors interface extending Teacher
+interface Directors extends Teacher {
+ numberOfReports: number; // additional required property
+}
+
+// 4. Example Director objects
+const director1: Directors = {
+  firstName: "John",
+  lastName: "Doe",
+  location: "London",
+  fullTimeEmployee: true,
+  numberOfReports: 17
+};
+
+const director2: Directors = {
+  firstName: "Alice",
+  lastName: "Smith",
+  location: "New York",
+  fullTimeEmployee: true,
+  numberOfReports: 10,
+  contract: true // extra property
+};
+
+// Log Directors
+console.log("Directors:");
+console.log(director1);
+console.log(director2);
